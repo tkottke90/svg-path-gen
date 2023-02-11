@@ -1,3 +1,3 @@
-const package = require('../package.json');
+import pkg from '../package.json' assert { type: "json" };
 
-console.log(package.version);
+console.log(pkg.version);
