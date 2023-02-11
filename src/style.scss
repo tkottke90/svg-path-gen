@@ -1,0 +1,76 @@
+@mixin formGrid() {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-gap: 0.5rem;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  
+  header {
+    padding: 1rem;
+  }
+
+  main {
+    height: 100%;
+    width: 100%;
+    
+    padding: 0.25rem
+  }
+}
+
+#content-wrapper {
+  height: 100%;
+    
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+
+  section {
+    padding: 1rem 0.5rem;
+  }
+}
+
+#input {
+  --min-column-size: 100%;
+
+  width: 100%;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  grid-auto-rows: auto;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(auto-fill,minmax(var(--min-column-size),auto));
+
+  form {
+    margin-top: 0.5rem;
+    @include formGrid();
+  }
+}
+
+#segment-input-form {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-gap: 0.5rem;
+
+  #input-actions {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+  }
+} 
+
+#segment-list {
+  .segment-item {
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: 1fr 5rem;
+  }
+
+
+}

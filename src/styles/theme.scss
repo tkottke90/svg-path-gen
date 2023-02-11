@@ -1,0 +1,70 @@
+// Theme: https://www.schemecolor.com/lava-flow.php
+@use "sass:map";
+@use "sass:color";
+@import './mixins.scss';
+
+$black: hsl(0, 0%, 13%);
+$white: hsl(0, 0%, 95%);
+
+$theme-primary: (
+  "hue": 215,
+  "saturation": 10.7%,
+  "lightness": 22%,
+  "font": $white
+);
+
+$theme-accent: (
+  "hue": 215,
+  "saturation": 10.7%,
+  "lightness": 22%,
+  "font": $white
+);
+
+$theme-warning: (
+  "hue": 40,
+  "saturation": 100%,
+  "lightness": 65%,
+  "font": $black
+);
+
+:root {
+  @include createThemeVariables("primary", $theme-primary);
+  @include createThemeVariables("accent", $theme-accent);
+  @include createThemeVariables("warn", $theme-warning);
+
+  --theme-foreground: #{theme($theme-primary, 0%, 13%)};
+  --theme-background: #{theme($theme-primary, 0%, 95%)};
+  --theme-elevated-background: #{theme($theme-primary, 0%, 100%)};
+
+  @include darkTheme {
+    $background: theme($theme-primary, $lightness: 11%);
+
+    --theme-foreground: #fff;
+    --theme-background: hsl(215, 10.7%, 11%); 
+    --theme-elevated-background: hsl(215, 10.7%, 18%);
+  }
+}
+
+@mixin elevatedColors() {
+  background-color: theme($theme-primary, $lightness: 97.5%);
+
+  @include darkTheme {
+    background-color: theme($theme-primary, $lightness: 18%);
+  }
+}
+
+body header {
+  @include elevatedColors();
+}
+
+.card {
+  @include elevatedColors();
+  @include elevation(1);
+
+  border: 1px solid color.adjust(theme($theme-primary, 0%, 95%), $lightness: -25%);
+  border-radius: 0.25rem;
+
+  @include darkTheme {
+    border: 1px solid color.adjust(theme($theme-primary, 0%, 18%), $lightness: 15%);
+  }
+}

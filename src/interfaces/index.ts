@@ -1,0 +1,1 @@
+export type { SegmentInput } from './segment';

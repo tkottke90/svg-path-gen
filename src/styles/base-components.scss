@@ -1,0 +1,48 @@
+@import './mixins.scss';
+@import './theme.scss';
+
+:root {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: "Roboto", arial, sans-serif;
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-color: var(--theme-background);
+  color: var(--theme-foreground);
+
+  @include tabletBreakpoint {
+    font-size: 14px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.card {
+  padding: 1rem;
+}
+
+.iconify {
+  --size: 2rem;
+
+  height: var(--size);
+  width: var(--size);
+}

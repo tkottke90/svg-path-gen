@@ -1,0 +1,21 @@
+{
+  "name": "my-vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "compile": "tsc && vite build",
+    "build": "docker build -t ghcr.io/tkottke90/svg-path-gen:$(node ./scripts/getVersion) .",
+    "publish": "docker push ghcr.io/tkottke90/svg-path-gen:$(node ./scripts/getVersion)",
+    "preview": "vite preview",
+    "release": "npm run version && npm run compile && npm run build && npm run publish",
+    "version": "standard-version"
+  },
+  "devDependencies": {
+    "sass": "^1.58.0",
+    "standard-version": "^9.5.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.0"
+  }
+}

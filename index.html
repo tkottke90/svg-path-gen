@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Path Map Generator</title>
+  </head>
+  <body>
+    <header>
+      <h1>SVG Path Map Generator</h1>
+    </header>
+    <main>
+      <div id="content-wrapper">
+        <section id="input">
+          <div class="card">
+            <h3>SVG Element Config</h3>
+            <form action="" id="svg-input-form">
+              <label for="x-cord--start">X Start</label>
+              <input step="0.01" name="x-cord--start" type="number" id="x-cord--start" required value="0"/>
+              <label for="y-cord--start">Y Start</label>
+              <input step="0.01" name="y-cord--start" type="number" id="y-cord--start" required value="0"/>
+              <label for="x-cord--end">X End</label>
+              <input step="0.01" name="x-cord--end" type="number" id="x-cord--end" required value="1000"/>
+              <label for="y-cord--end">Y End</label>
+              <input step="0.01" name="y-cord--end" type="number" id="y-cord--end" required value="1000"/>
+              <label for="global-stroke">Global Stroke</label>
+              <input name="global-stroke" type="color" id="global-stroke" required value="#222"/>
+            </form>
+          </div>
+          <div class="card">
+            <h3>Add Segment</h3>
+            <form action="" id="segment-input-form">
+              <label for="type">Segment Type</label>
+              <select name="type" id="segment-type">
+                <option value="m">Relative Move (m)</option>
+                <option value="M">Absolute Move (M)</option>
+                <option value="l">Relative Line (l)</option>
+                <option value="L">Absolute Line (L)</option>
+                <option value="h">Relative Horizontal Line (h)</option>
+                <option value="H">Absolute Horizontal Line (H)</option>
+                <option value="v">Relative Vertical Line (v)</option>
+                <option value="V">Absolute Vertical Line (V)</option>
+              </select>
+              <label for="x-input">X Value</label>
+              <input step="0.01" name="x-input" type="number" id="x-input" required />
+              <label for="y-input">Y Value</label>
+              <input step="0.01" name="y-input" type="number" id="y-input" required />
+              <!-- <label for="x-1-input">X<sub>1</sub> Value</label>
+              <input name="x-1-input" type="number" id="x-1-input" required disabled />
+              <label for="y-1-input">Y<sub>1</sub> Value</label>
+              <input name="y-1-input" type="number" id="y-1-input" required disabled />
+              <label for="x-2-input">X<sub>2</sub> Value</label>
+              <input name="x-2-input" type="number" id="x-2-input" required disabled />
+              <label for="y-2-input">Y<sub>2</sub> Value</label>
+              <input name="y-2-input" type="number" id="y-2-input" required disabled /> -->
+              <div id="input-actions">
+                <button type="reset">Reset</button>
+                <button type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+          <div class="card">
+            <h3>Current Segments:</h3>
+            <ol id="segment-list"></ol>
+          </div>
+        </section>
+        <section id="output">
+          <div class="card">
+            <h3>Output:</h3>
+            <div class="svg-container">
+              <svg id="svg-output" viewBox="0 0 1000 1000" stroke="#222" fill="none"></svg>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+
+    <template id="segment-item">
+      <li class="segment-item">
+        <section class="segment--display">
+          <p class="segment--label"></p>
+        </section>
+        <section class="segment--actions">
+          <button class="btn-convert">Convert</button>
+          <button class="btn-edit">Edit</button>
+          <button class="btn-delete">Delete</button>
+        </section>
+      </li>
+    </template>
+  </body>
+</html>
