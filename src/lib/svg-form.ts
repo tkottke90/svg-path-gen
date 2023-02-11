@@ -2,7 +2,7 @@ import { DrawSVG } from '.';
 
 const form = document.getElementById('svg-input-form') as HTMLFormElement;
 
-form.addEventListener('change', (e) => {
+form.addEventListener('change', () => {
   const formData = new FormData(form);
   
   const viewPort = `${formData.get('x-cord--start')} ${formData.get('y-cord--start')} ${formData.get('x-cord--end')} ${formData.get('y-cord--end')}`;

@@ -43,7 +43,7 @@ function renderSegments() {
   SegmentList.renderSegments(elemList, segments.map(s => s[0]).join(' '));
 }
 
-select.addEventListener('change', (e) => {
+select.addEventListener('change', () => {
   updateInputs(select.value);
 })
 
@@ -71,7 +71,7 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-form.addEventListener('reset', (e) => {
+form.addEventListener('reset', () => {
   updateInputs('m');
   form.dataset.segment_id = '';
 });
