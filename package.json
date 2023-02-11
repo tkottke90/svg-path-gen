@@ -1,7 +1,7 @@
 {
   "name": "svg-path-gen",
   "private": true,
-  "version": "0.0.6",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,8 @@
     "build": "docker build -t ghcr.io/tkottke90/svg-path-gen:$(node ./bin/getVersion) --build-arg \"COMMIT=$(git rev-parse HEAD)\" --build-arg \"BRANCH=$(git rev-parse --abbrev-ref HEAD)\"  .",
     "publish": "docker push ghcr.io/tkottke90/svg-path-gen:$(node ./bin/getVersion)",
     "preview": "vite preview",
-    "release": "npm run version -r minor && npm run compile && npm run build && npm run publish",
-    "release-major": "npm run version -r major && npm run compile && npm run build && npm run publish",
+    "release": "npm run version -- -r minor && npm run compile && npm run build && npm run publish",
+    "release-major": "npm run version -- -r major && npm run compile && npm run build && npm run publish",
     "version": "standard-version"
   },
   "devDependencies": {
