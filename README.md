@@ -2,7 +2,7 @@
 
 Tool to generate SVG Paths using maths
 
-!(app)[/docs/app-screenshot.png]
+![app](/docs/app-screenshot.png)
 
 ## Inspiration
 
